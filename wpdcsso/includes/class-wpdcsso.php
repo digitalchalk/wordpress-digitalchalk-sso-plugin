@@ -57,7 +57,7 @@ if (!class_exists("WPDCSSO")) {
 			wp_get_current_user();
 
 			$timestamp = time();
-			$to_hash = $timestamp . '|' . get_option("wpdcsso_shared_secret") . "|" . urlencode($current_user->user_email);
+			$to_hash = $timestamp . '|' . get_option("wpdcsso_shared_secret") . "|" . $current_user->user_email;
 			$hash = MD5($to_hash);
 			?>
 <html>
