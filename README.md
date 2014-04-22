@@ -26,7 +26,7 @@ Download the latest version of the plugin from the releases directory.  The curr
 
 Install the usual way through the plugins option in Wordpress Admin panel.  No code changes to templates are required.
 
-After installation, go to Settings > Plugins > DigitalChalk SSO and set the parameters for the plugin, based on information from your DigitalChalk instructor account.
+After installation and plugin activation (in WordPress wp-admin), go to Settings > Plugins > DigitalChalk SSO and set the parameters for the plugin, based on information from your DigitalChalk instructor account.
 
 #Frequently Asked Questions
 #####Q: Should I choose email or username in the settings?
