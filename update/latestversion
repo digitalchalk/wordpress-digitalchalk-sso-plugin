@@ -1,0 +1,13 @@
+{
+    "new_version": "1.0.0",
+    "info_page": "https://github.com/digitalchalk/wordpress-digitalchalk-sso-plugin",
+    "download_link": "https://github.com/digitalchalk/wordpress-digitalchalk-sso-plugin/raw/master/releases/wpdcsso.1.0.0.zip",
+    "slug": "wpdcsso",
+    "requires": "3.0",
+    "tested": "3.8.1",
+    "last_updated": "2014-04-22",
+    "sections": [
+{"Description": "This is the DigitalChalk Single Sign-on plugin for Wordpress"},
+{"Changelog": "First public with auto updates"}
+    ]
+}
