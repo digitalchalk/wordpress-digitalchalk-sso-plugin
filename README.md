@@ -22,6 +22,8 @@ This is a plugin for Wordpress that enables Single Sign-On to the DigitalChalk L
 
 #Installation
 
+Download the latest version of the plugin from the releases directory.  The current version is wpdcsso-1.0.2.zip.
+
 Install the usual way through the plugins option in Wordpress Admin panel.  No code changes to templates are required.
 
 After installation, go to Settings > Plugins > DigitalChalk SSO and set the parameters for the plugin, based on information from your DigitalChalk instructor account.
