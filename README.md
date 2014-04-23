@@ -1,5 +1,4 @@
-wordpress-digitalchalk-sso-plugin
-=================================
+#wordpress-digitalchalk-sso-plugin
 
 #Description
 
@@ -26,11 +25,11 @@ Stable auto updating release
 First public release with github updater.
 
 ###Other Info
-Contributors: bobrob_atl,ttolle
+Contributors: bobrob,ttolle
 
 Requires at least: 3.0.1
 
-Tested up to: 3.9
+Tested up to: WordPress 3.9
 
 Stable tag: 1.0.2
 
