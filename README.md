@@ -1,8 +1,8 @@
 #wordpress-digitalchalk-sso-plugin
 
-#DISCLAIMER
+#Disclaimer
 
-This plugin is provided AS-IS.  Due to differences and updates to the WooCommerce system, this plugin is not officially supported by DigitalChalk, and should be used only as an example of integration.  Any changes required to this plugin to make it work with your particular installation is your responsibility.  We encourage you to fork this project and modify it to work with your own system.
+This plugin is provided AS-IS.  Due to differences and updates to the WordPress system, this plugin is not officially supported by DigitalChalk, and should be used only as an example of integration.  Any changes required to this plugin to make it work with your particular installation is your responsibility.  We encourage you to fork this project and modify it to work with your own system.
 
 #Description
 
