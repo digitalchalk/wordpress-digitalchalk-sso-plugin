@@ -3,7 +3,7 @@
 Plugin Name: DigitalChalk Single Sign-on for Wordpress
 Plugin URI: http://digitalchalk.com/
 Description: Provides single sign-on to DigitalChalk from Wordpress
-Version: 1.0.2
+Version: 1.0.4
 Author: Bob Robinson (brobinson@digitalchalk.com)
 Author URI: http://digitalchalk.com
 License: GPLv2 or later
@@ -21,7 +21,7 @@ if (!defined('WPDCSSO_VERSION_KEY'))
 	define('WPDCSSO_VERSION_KEY', 'wpdcsso_version');
 
 if (!defined('WPDCSSO_VERSION_NUM'))
-	define('WPDCSSO_VERSION_NUM', '1.0.2');
+	define('WPDCSSO_VERSION_NUM', '1.0.4');
 
 add_option(WPDCSSO_VERSION_KEY, WPDCSSO_VERSION_NUM);
 add_action('init', 'wpdcsso_activate_updater');
@@ -42,7 +42,7 @@ function wpdcsso_activate_updater() {
 $plugin = plugin_basename(__FILE__);
 add_filter("plugin_action_links_$plugin", 'wpdcsso_settings_link' );
 
-$GLOBALS['WPDCSSO'] =& new WPDCSSO();
+$GLOBALS['WPDCSSO'] = new WPDCSSO();
 register_activation_hook( __FILE__, array('WPDCSSO', 'activate') );
 register_deactivation_hook( __FILE__, array('WPDCSSO', 'deactivate') );	
 ?>
