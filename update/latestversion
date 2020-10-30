@@ -1,7 +1,7 @@
 {
-    "new_version": "1.0.5",
+    "new_version": "1.0.4",
     "info_page": "https://github.com/digitalchalk/wordpress-digitalchalk-sso-plugin",
-    "download_link": "https://github.com/digitalchalk/wordpress-digitalchalk-sso-plugin/raw/master/releases/wpdcsso.1.0.5.zip",
+    "download_link": "https://github.com/digitalchalk/wordpress-digitalchalk-sso-plugin/raw/master/releases/wpdcsso.1.0.4.zip",
     "slug": "wpdcsso",
     "requires": "3.0",
     "tested": "3.9",
