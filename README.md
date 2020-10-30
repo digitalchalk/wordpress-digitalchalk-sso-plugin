@@ -6,7 +6,7 @@ This is a plugin for Wordpress that enables Single Sign-On to the DigitalChalk L
 
 #Installation
 
-Download the latest version of the plugin from the releases directory.  The current version is [wpdcsso-1.0.4.zip](https://github.com/digitalchalk/wordpress-digitalchalk-sso-plugin/raw/master/releases/wpdcsso.1.0.4.zip).
+Download the latest version of the plugin from the releases directory.  The current version is [wpdcsso-1.0.5.zip](https://github.com/digitalchalk/wordpress-digitalchalk-sso-plugin/raw/master/releases/wpdcsso.1.0.5.zip).
 
 Install the usual way through the plugins option in Wordpress Admin panel.  No code changes to templates are required.
 
@@ -18,6 +18,9 @@ After installation and plugin activation (in WordPress wp-admin), go to Settings
 
 
 ###Changelog
+####1.0.5
+Fixed ability to pass in Sandbox or Production URLs
+
 ####1.0.4
 Updated to support more metadata fields and PHP7
 
@@ -34,7 +37,7 @@ Requires at least: 3.0.1
 
 Tested up to: WordPress 3.9
 
-Stable tag: 1.0.3
+Stable tag: 1.0.5
 
 Tags: DigitalChalk,SSO
 
