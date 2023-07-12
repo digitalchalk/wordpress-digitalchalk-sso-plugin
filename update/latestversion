@@ -4,8 +4,8 @@
     "download_link": "https://github.com/digitalchalk/wordpress-digitalchalk-sso-plugin/raw/master/releases/wpdcsso.1.0.5.zip",
     "slug": "wpdcsso",
     "requires": "3.0",
-    "tested": "3.9",
-    "last_updated": "2020-10-29",
+    "tested": "6.2.2",
+    "last_updated": "2023-06-12",
     "sections": [
 {"Description": "This is the DigitalChalk Single Sign-on plugin for Wordpress"},
 {"Changelog": "Sandbox / production switch"}
