@@ -5,7 +5,7 @@
     "slug": "wpdcsso",
     "requires": "3.0",
     "tested": "6.2.2",
-    "last_updated": "2023-06-12",
+    "last_updated": "2023-07-12",
     "sections": [
 {"Description": "This is the DigitalChalk Single Sign-on plugin for Wordpress"},
 {"Changelog": "Sandbox / production switch"}
