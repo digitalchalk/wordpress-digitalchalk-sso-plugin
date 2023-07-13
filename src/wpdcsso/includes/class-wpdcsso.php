@@ -153,8 +153,16 @@ if (!class_exists("WPDCSSO")) {
                     <tr valign="top">
                         <th scope="row"><label for="wpdcsso_api_url"><?php _e('DigitalChalk API URL', 'wpdcsso');?></label></th>
                         <td>
-                            <input name="wpdcsso_api_url" type="text" id="wpdcsso_api_url" value="<?php echo get_option('wpdcsso_api_url'); ?>" class="large-text" />
-                            <p class="description"><?php _e('The API URL provided to you by DigitalChalk.', 'wpdcsso');?></p>
+                            <input name="wpdcsso_api_url" type="text" id="wpdcsso_api_url" value="<?php echo get_option('wpdcsso_api_url', 'https://api.digitalchalk.com/dc/api/v5'); ?>" class="large-text" />
+                            <p class="description"><?php _e('The API URL provided to you by DigitalChalk. <button type="button" id="useDefault" attr-host-url="https://api.digitalchalk.com/dc/api/v5">Use Default</button>', 'wpdcsso');?></p>
+                            <script>
+                            (() => {
+                                const hostnameInput = document.getElementById("wpdcsso_api_url");
+                                const defaultHostUrl = document.getElementById("useDefault");
+                                
+                                defaultHostUrl.onclick = () => hostnameInput.value = defaultHostUrl.getAttribute('attr-host-url');
+                            })();
+                            </script>
                         </td>
                     </tr>
                     <tr valign="top">
