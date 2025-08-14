@@ -68,5 +68,4 @@ add_filter( "plugin_action_links_$plugin", 'wpdcsso_settings_link' );
 
 $GLOBALS['WPDCSSO'] = new WPDCSSO();
 register_activation_hook( __FILE__, array( 'WPDCSSO', 'activate' ) );
-register_deactivation_hook( __FILE__, array( 'WPDCSSO', 'deactivate' ) );	
-?>
+register_deactivation_hook( __FILE__, array( 'WPDCSSO', 'deactivate' ) );

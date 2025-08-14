@@ -143,7 +143,3 @@ if ( ! class_exists( 'WPDCSSO_Updater' ) ) {
 		}
 	}  // end class
 }  // end if class_exists
-
-?>
-
-?>

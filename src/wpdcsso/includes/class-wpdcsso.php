@@ -40,7 +40,7 @@ if ( ! class_exists( 'WPDCSSO' ) ) {
 			register_setting( 'wpdcsso_options', 'wpdcsso_api_url', array(
 				'type' => 'string',
 				'sanitize_callback' => 'esc_url_raw',
-				'default' => 'https://api.digitalchalk.com/dc/api/v5',
+				'default' => 'https://api.digitalchalk.com/api/v5',
 			) );
 			register_setting( 'wpdcsso_options', 'wpdcsso_shared_secret', array(
 				'type' => 'string',
@@ -194,7 +194,7 @@ if ( ! class_exists( 'WPDCSSO' ) ) {
 				<form action="options.php" method="post">
 				<?php 
 				settings_fields( 'wpdcsso_options' );
-				wp_nonce_field( 'update-options' );
+				do_settings_sections( 'wpdcsso_options' );
 				?>
 				<table class="form-table">
 					<tr valign="top">
@@ -221,10 +221,10 @@ if ( ! class_exists( 'WPDCSSO' ) ) {
 					<tr valign="top">
 						<th scope="row"><label for="wpdcsso_api_url"><?php esc_html_e( 'DigitalChalk API URL', 'wpdcsso' ); ?></label></th>
 						<td>
-							<input name="wpdcsso_api_url" type="url" id="wpdcsso_api_url" value="<?php echo esc_attr( get_option( 'wpdcsso_api_url', 'https://api.digitalchalk.com/dc/api/v5' ) ); ?>" class="large-text" />
+							<input name="wpdcsso_api_url" type="url" id="wpdcsso_api_url" value="<?php echo esc_attr( get_option( 'wpdcsso_api_url', 'https://api.digitalchalk.com/api/v5' ) ); ?>" class="large-text" />
 							<p class="description">
 								<?php esc_html_e( 'The API URL provided to you by DigitalChalk.', 'wpdcsso' ); ?>
-								<button type="button" id="useDefault" data-host-url="https://api.digitalchalk.com/dc/api/v5"><?php esc_html_e( 'Use Default', 'wpdcsso' ); ?></button>
+								<button type="button" id="useDefault" data-host-url="https://api.digitalchalk.com/api/v5"><?php esc_html_e( 'Use Default', 'wpdcsso' ); ?></button>
 							</p>
 							<script>
 							(function() {
@@ -289,11 +289,7 @@ if ( ! class_exists( 'WPDCSSO' ) ) {
 						</td>
 					</tr>
 				</table>
-				<p>
 				<?php submit_button(); ?>
-				</p>
-				<input type="hidden" name="action" value="update" />
-				<input type="hidden" name="page_options" value="wpdcsso_dc_url,wpdcsso_email_username,wpdcsso_api_url,wpdcsso_shared_secret,wpdcsso_shared_token,wpdcsso_single_sign_out" />
 				</form>
 			</div>
 		<?php
@@ -356,7 +352,7 @@ if ( ! class_exists( 'WPDCSSO' ) ) {
 		public static function activate() {
 			add_option( 'wpdcsso_dc_url' );
 			add_option( 'wpdcsso_email_username', 'email' );
-			add_option( 'wpdcsso_api_url', 'https://api.digitalchalk.com/dc/api/v5' );
+			add_option( 'wpdcsso_api_url', 'https://api.digitalchalk.com/api/v5' );
 			add_option( 'wpdcsso_shared_secret' );
 			add_option( 'wpdcsso_shared_token' );
 			add_option( 'wpdcsso_single_sign_out', 'yes' );
