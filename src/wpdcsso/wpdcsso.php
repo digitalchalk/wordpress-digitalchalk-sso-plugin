@@ -4,7 +4,7 @@ Plugin Name: DigitalChalk Single Sign-on for WordPress
 Plugin URI: https://digitalchalk.com/
 Description: Provides single sign-on to DigitalChalk from WordPress
 Version: 1.1.0
-Author: Bob Robinson (brobinson@digitalchalk.com)
+Author: Bob Robinson (brobinson@digitalchalk.com), Daniel Hensley (dhensley@digitalchalk.com)
 Author URI: https://digitalchalk.com
 License: GPLv2 or later
 Text Domain: wpdcsso
