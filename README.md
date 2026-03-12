@@ -10,7 +10,7 @@ This is a plugin for Wordpress that enables Single Sign-On to the DigitalChalk L
 
 ## Installation
 
-Download the latest version of the plugin from the releases directory.  The current version is [wpdcsso-1.1.0.zip](https://github.com/digitalchalk/wordpress-digitalchalk-sso-plugin/raw/master/releases/wpdcsso.1.1.0.zip).
+Download the latest version of the plugin from [GitHub Releases](https://github.com/digitalchalk/wordpress-digitalchalk-sso-plugin/releases/latest).
 
 Install the usual way through the plugins option in Wordpress Admin panel.  No code changes to templates are required.
 
@@ -96,7 +96,32 @@ If you encounter any issues after updating, please:
 3. Check WordPress debug logs for any error messages
 4. Contact DigitalChalk support with specific error details
 
+## Releasing a New Version
+
+Releases are built automatically via GitHub Actions. To publish a new version:
+
+1. Update the version number in `src/wpdcsso/wpdcsso.php` (both the plugin header `Version:` and the `WPDCSSO_VERSION_NUM` constant)
+2. Commit your changes to `master`
+3. Tag the commit: `git tag v1.2.0 && git push origin v1.2.0`
+4. The workflow will:
+   - Validate the tag matches the plugin header version
+   - Build the plugin zip with the correct directory structure
+   - Create a GitHub Release with the zip attached
+   - Update `update/latestversion` so existing installs see the new version
+
+### How WordPress Update Detection Works
+
+The file `update/latestversion` is a JSON manifest that the plugin's built-in updater (`WPDCSSO_Updater`) fetches from this repo to check for new versions. WordPress doesn't know about GitHub Releases natively — this manifest is the bridge. It contains the latest version number and the download URL pointing to the GitHub Release asset.
+
+The GitHub Actions workflow automatically updates this file on each release, so no manual editing is needed. Do not remove the `update/` directory — without it, existing installations won't detect new versions.
+
+The `releases/` directory is no longer used. Previous releases remain for historical reference.
+
 ## Changelog
+
+### Version 1.1.1 (2026-01-12)
+- **Added** GitHub Actions release process
+- **Updated** More code modernization and cleanup
 
 ### Version 1.1.0 (2025-08-14)
 - **Added**: PHP 8 compatibility
@@ -130,7 +155,7 @@ Contributors: bobrob,ttolle,hdhensley
 
 Tested up to: WordPress 6.6
 
-Stable tag: 1.1.0
+Stable tag: 1.1.1
 
 Tags: DigitalChalk,SSO
 

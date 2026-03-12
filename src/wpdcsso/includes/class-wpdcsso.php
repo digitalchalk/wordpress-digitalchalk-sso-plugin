@@ -102,7 +102,7 @@ if ( ! class_exists( 'WPDCSSO' ) ) {
 		 */
 		public function make_wp_sso_login_url() {
 			$url = wp_login_url();
-			$separator = $this->contains( '?', $url ) ? '&' : '?';
+			$separator = str_contains('?', $url ) ? '&' : '?';
 			$url .= $separator . 'action=wpdcsso_login';
 			return $url;
 		}
@@ -158,17 +158,6 @@ if ( ! class_exists( 'WPDCSSO' ) ) {
 			echo '</form>
 			</body>
 			</html>';
-		}
-
-		/**
-		 * Debug content (unused)
-		 *
-		 * @param string $content Content to append to
-		 * @return string
-		 */
-		public function append_debug_content( $content ) {
-			$content .= 'This is the append_debug_content';
-			return $content;
 		}
 
 		/**
@@ -303,7 +292,7 @@ if ( ! class_exists( 'WPDCSSO' ) ) {
 		public function is_login_url() {
 			$server_name = isset( $_SERVER['SERVER_NAME'] ) ? sanitize_text_field( wp_unslash( $_SERVER['SERVER_NAME'] ) ) : '';
 			$php_self = isset( $_SERVER['PHP_SELF'] ) ? sanitize_text_field( wp_unslash( $_SERVER['PHP_SELF'] ) ) : '';
-			return $this->contains( $server_name . $php_self, wp_login_url(), true );
+			return str_contains(strtolower($server_name . $php_self), strtolower(wp_login_url()));
 		}
 
 		/**
@@ -313,7 +302,7 @@ if ( ! class_exists( 'WPDCSSO' ) ) {
 		 */
 		public function make_login_url() {
 			$url = wp_login_url();
-			$separator = $this->contains( '?', $url ) ? '&' : '?';
+			$separator = str_contains('?', $url ) ? '&' : '?';
 			$url .= $separator . 'action=wpdcsso_login';
 			return $url;
 		}
@@ -325,25 +314,9 @@ if ( ! class_exists( 'WPDCSSO' ) ) {
 		 */
 		public function make_logout_url() {
 			$url = wp_login_url();
-			$separator = $this->contains( '?', $url ) ? '&' : '?';
+			$separator = str_contains('?', $url ) ? '&' : '?';
 			$url .= $separator . 'action=wpdcsso_logout';
 			return $url;
-		}
-
-		/**
-		 * Check if string contains content
-		 *
-		 * @param string $str String to search for
-		 * @param string $content Content to search in
-		 * @param bool $ignorecase Whether to ignore case
-		 * @return bool
-		 */
-		public function contains( $str, $content, $ignorecase = true ) {
-			if ( $ignorecase ) {
-				$str = strtolower( $str );
-				$content = strtolower( $content );
-			}
-			return ( strpos( $content, $str ) !== false );
 		}
 
 		/**

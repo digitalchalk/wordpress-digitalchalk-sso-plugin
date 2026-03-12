@@ -3,7 +3,7 @@
 Plugin Name: DigitalChalk Single Sign-on for WordPress
 Plugin URI: https://digitalchalk.com/
 Description: Provides single sign-on to DigitalChalk from WordPress
-Version: 1.1.0
+Version: 1.1.1
 Author: Bob Robinson (brobinson@digitalchalk.com), Daniel Hensley (dhensley@digitalchalk.com)
 Author URI: https://digitalchalk.com
 License: GPLv2 or later
@@ -34,11 +34,13 @@ if ( ! defined( 'WPDCSSO_VERSION_KEY' ) ) {
 }
 
 if ( ! defined( 'WPDCSSO_VERSION_NUM' ) ) {
-	define( 'WPDCSSO_VERSION_NUM', '1.1.0' );
+	define( 'WPDCSSO_VERSION_NUM', '1.1.1' );
 }
 
 // Initialize the plugin
-add_option( WPDCSSO_VERSION_KEY, WPDCSSO_VERSION_NUM );
+if ( get_option( WPDCSSO_VERSION_KEY ) !== WPDCSSO_VERSION_NUM ) {
+    update_option( WPDCSSO_VERSION_KEY, WPDCSSO_VERSION_NUM );
+}
 add_action( 'init', 'wpdcsso_activate_updater' );
 
 require_once( WPDCSSO_ABSPATH . '/includes/class-wpdcsso.php' );
@@ -60,7 +62,7 @@ function wpdcsso_settings_link( $links ) {
  */
 function wpdcsso_activate_updater() {
 	require_once( WPDCSSO_ABSPATH . '/includes/class-wpdcsso-updater.php' );
-	new WPDCSSO_Updater( WPDCSSO_VERSION_NUM, 'https://raw.github.com/digitalchalk/wordpress-digitalchalk-sso-plugin/master/update', plugin_basename( __FILE__ ) );
+	new WPDCSSO_Updater( WPDCSSO_VERSION_NUM, 'https://raw.githubusercontent.com/digitalchalk/wordpress-digitalchalk-sso-plugin/main/update', plugin_basename( __FILE__ ) );
 }
 
 $plugin = plugin_basename( __FILE__ );

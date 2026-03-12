@@ -1,0 +1,74 @@
+name: Release Plugin
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Extract version from tag
+        id: version
+        run: echo "VERSION=${GITHUB_REF_NAME#v}" >> $GITHUB_OUTPUT
+
+      - name: Validate version matches plugin header
+        run: |
+          HEADER_VERSION=$(grep -oP "Version:\s*\K[0-9.]+" src/wpdcsso/wpdcsso.php)
+          if [ "$HEADER_VERSION" != "${{ steps.version.outputs.VERSION }}" ]; then
+            echo "::error::Tag version (${{ steps.version.outputs.VERSION }}) does not match plugin header version ($HEADER_VERSION)"
+            exit 1
+          fi
+
+      - name: Build plugin zip
+        run: |
+          mkdir -p build/wpdcsso/includes
+          cp src/wpdcsso/wpdcsso.php build/wpdcsso/
+          cp src/wpdcsso/includes/*.php build/wpdcsso/includes/
+          cd build
+          zip -r ../wpdcsso.${{ steps.version.outputs.VERSION }}.zip wpdcsso/
+
+      - name: Update latest version manifest
+        run: |
+          cat > update/latestversion << 'MANIFEST'
+          {
+            "new_version": "${{ steps.version.outputs.VERSION }}",
+            "info_page": "https://github.com/${{ github.repository }}",
+            "download_link": "https://github.com/${{ github.repository }}/releases/download/${{ github.ref_name }}/wpdcsso.${{ steps.version.outputs.VERSION }}.zip",
+            "slug": "wpdcsso",
+            "requires": "5.0",
+            "tested": "6.6",
+            "requires_php": "8.0",
+            "last_updated": "$(date +%Y-%m-%d)",
+            "sections": [
+              {
+                "Description": "DigitalChalk Single Sign-on plugin for WordPress. Compatible with PHP 8 and the latest WordPress versions."
+              },
+              {
+                "Changelog": "See https://github.com/${{ github.repository }}/releases/tag/${{ github.ref_name }}"
+              }
+            ]
+          }
+          MANIFEST
+
+      - name: Commit updated manifest
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout master
+          git add update/latestversion
+          git diff --cached --quiet || git commit -m "Update version manifest for ${{ github.ref_name }}"
+          git push origin master
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: wpdcsso.${{ steps.version.outputs.VERSION }}.zip
+          generate_release_notes: true
+          name: "v${{ steps.version.outputs.VERSION }}"
