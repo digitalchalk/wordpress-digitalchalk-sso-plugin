@@ -6,7 +6,7 @@
   "requires": "5.0",
   "tested": "6.6",
   "requires_php": "8.0",
-  "last_updated": "$(date +%Y-%m-%d)",
+  "last_updated": "2026-03-12",
   "sections": [
     {
       "Description": "DigitalChalk Single Sign-on plugin for WordPress. Compatible with PHP 8 and the latest WordPress versions."
