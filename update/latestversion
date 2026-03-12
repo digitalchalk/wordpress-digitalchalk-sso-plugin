@@ -1,18 +1,18 @@
 {
-  "new_version": "1.1.0",
+  "new_version": "1.1.1",
   "info_page": "https://github.com/digitalchalk/wordpress-digitalchalk-sso-plugin",
-  "download_link": "https://github.com/digitalchalk/wordpress-digitalchalk-sso-plugin/releases/download/v1.1.0/wpdcsso.1.1.0.zip",
+  "download_link": "https://github.com/digitalchalk/wordpress-digitalchalk-sso-plugin/releases/download/v1.1.1/wpdcsso.1.1.1.zip",
   "slug": "wpdcsso",
   "requires": "5.0",
   "tested": "6.6",
   "requires_php": "8.0",
-  "last_updated": "2025-08-14",
+  "last_updated": "$(date +%Y-%m-%d)",
   "sections": [
     {
       "Description": "DigitalChalk Single Sign-on plugin for WordPress. Compatible with PHP 8 and the latest WordPress versions."
     },
     {
-      "Changelog": "See https://github.com/digitalchalk/wordpress-digitalchalk-sso-plugin/releases/tag/vess APIs, fixed deprecated functions, enhanced input sanitization and output escaping, replaced cURL with wp_remote_* functions, improved error handling, and updated UI components for better accessibility."
+      "Changelog": "See https://github.com/digitalchalk/wordpress-digitalchalk-sso-plugin/releases/tag/v1.1.1"
     }
   ]
 }
