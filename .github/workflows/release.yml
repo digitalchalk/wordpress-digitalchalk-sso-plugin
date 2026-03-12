@@ -61,6 +61,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+          git fetch origin master
           git checkout master
           git add update/latestversion
           git diff --cached --quiet || git commit -m "Update version manifest for ${{ github.ref_name }}"
